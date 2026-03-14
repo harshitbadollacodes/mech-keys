@@ -1,0 +1,103 @@
+{
+  "name": "mech-keys",
+  "displayName": "Mech Keys",
+  "description": "Mechanical keyboard sounds for VS Code",
+  "version": "0.0.2",
+  "license": "MIT",
+  "publisher": "HarshitBadolla",
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "mech-keys-container",
+          "title": "Mech Keys",
+          "icon": "./images/keyboard.svg"
+        }
+      ]
+    },
+    "views": {
+      "mech-keys-container": [
+        {
+          "icon": "",
+          "type": "webview",
+          "id": "mechKeys.audioPlayer",
+          "name": "Audio Engine"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "mech-keys.toggle",
+        "title": "MechKeys: Toggle Sound"
+      },
+      {
+        "command": "mech-keys.cycleProfile",
+        "title": "MechKeys: Cycle Profile"
+      },
+      {
+        "command": "mech-keys.switchProfile",
+        "title": "MechKeys: Switch Profile"
+      },
+      {
+        "command": "mech-keys.setVolume",
+        "title": "MechKeys: Set Volume"
+      }
+    ],
+    "configuration": {
+      "title": "MechKeys",
+      "properties": {
+        "mechkeys.profile": {
+          "type": "string",
+          "default": "blue",
+          "enum": [
+            "blue",
+            "typewriter"
+          ],
+          "enumDescriptions": [
+            "Cherry MX Blue - Loud & clicky",
+            "Lincoln Typewriter - Retro thunk"
+          ],
+          "description": "Mechanical keyboard sound profile"
+        },
+        "mechkeys.volume": {
+          "type": "number",
+          "default": 80,
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Volume level (0-100)"
+        },
+        "mechkeys.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable keyboard sounds"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.110.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.3"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.3.0"
+  }
+}
