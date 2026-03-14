@@ -1,4 +1,4 @@
-# Mech Keys 🎹
+# Mech Keys ⌨
 
 Bring the satisfying sound of a mechanical keyboard to your VS Code!
 
