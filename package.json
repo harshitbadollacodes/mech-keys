@@ -32,7 +32,7 @@
     "views": {
       "mech-keys-container": [
         {
-          "icon": "",
+          "icon": "./images/keyboard.svg",
           "type": "webview",
           "id": "mechKeys.audioPlayer",
           "name": "Audio Engine"
